@@ -60,7 +60,8 @@ def doctor_dashboard():
     </div>
     """, unsafe_allow_html=True)
 
-    st.dataframe(df, width="stretch")
+    # ✅ FIXED HERE
+    st.dataframe(df, use_container_width=True)
 
     # ===============================
     # SELECT PATIENT
@@ -201,11 +202,12 @@ def doctor_dashboard():
     </div>
     """, unsafe_allow_html=True)
 
+    # ✅ FIXED HERE
     if st.button(
         "📥 Generate & Download PDF Report"
         if lang == "English"
         else "📥 रिपोर्ट डाउनलोड करें",
-        width="stretch"
+        use_container_width=True
     ):
 
         pdf_path = generate_pdf(
